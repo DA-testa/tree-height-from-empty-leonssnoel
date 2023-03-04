@@ -3,26 +3,45 @@
 
 import sys
 import threading
-import numpy
+import numpy as np
 
 
 def compute_height(n, parents):
-    # Write this function
-    max_height = 0
-    # Your code here
+    # Tukša koka izveide, masīvs
+    nodes = [[] for _ in range(n)]
+    # Saknes atrašana
+    root = None
+    for i, parent in enumerate(parents):
+        if parent == -1:
+            root = i
+        else:
+            # Mezgla pievienošana vecākam
+            nodes[parent].append(i)
+    # Maksimālā koka dziļuma atrašana
+    max_height = dfs_height(nodes, root)
     return max_height
+
+def dfs_height(nodes, root):
+    # Ja mezglam nav pēctaču atgriež 1 
+    if not nodes[root]:
+        return 1
+    # Maksimālā dziļuma atrašana starp mezgla pēctačiem
+    max_child_height = 0
+    for child in nodes[root]:
+        child_height = dfs_height(nodes, child)
+        if child_height > max_child_height:
+            max_child_height = child_height
+    return max_child_height + 1
 
 
 def main():
-    # implement input form keyboard and from files
-    
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    pass
+    # Ievades lasīšana
+    n = int(input())
+    parents = np.fromstring(input(), dtype=int, sep=' ')
+    # Koka dziļuma aprēķināšana
+    max_height = compute_height(n, parents)
+    # Rezultāta izvade
+    print(max_height)
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
@@ -30,5 +49,3 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-main()
-# print(numpy.array([1,2,3]))
