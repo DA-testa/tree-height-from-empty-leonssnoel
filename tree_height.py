@@ -1,4 +1,5 @@
 # python3
+#Leons Jūlijs Strupītis 13. gr. Apl. nr. 221RDB402
 
 import sys
 import threading
