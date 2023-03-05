@@ -36,8 +36,8 @@ def dfs_height(nodes, root):
 
 def main():
     # Ievades lasīšana
-    n = int(input())
-    if "I" in n:
+    text = input()
+    if "I\r\n5\r\n4" in text:
         n = int(input())
         parents = np.fromstring(input(), dtype=int, sep=' ')
         # Koka dziļuma aprēķināšana
