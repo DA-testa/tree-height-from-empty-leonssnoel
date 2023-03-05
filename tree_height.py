@@ -48,8 +48,8 @@ def main():
     if "F\r" in text:
         text = input()
         with open(text, 'r') as f:
-            n = int(input())
-            parents = np.fromstring(input(), dtype=int, sep=' ')
+            n = int(f.readline().strip())
+            parents = np.fromstring(f.readline().strip(), dtype=int, sep=' ')
             # Koka dziļuma aprēķināšana
             max_height = compute_height(n, parents)
     
