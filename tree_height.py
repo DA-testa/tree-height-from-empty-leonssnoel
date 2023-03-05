@@ -47,7 +47,8 @@ def main():
         print(max_height)
     if "F" in text:
         text = input()
-        with open(text, 'r') as f:
+        filename = os.path.join("test", text)
+        with open(filename, 'r') as f:
             n = int(input())
             parents = np.fromstring(input(), dtype=int, sep=' ')
             # Koka dziļuma aprēķināšana
