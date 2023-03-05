@@ -37,11 +37,14 @@ def dfs_height(nodes, root):
 def main():
     # Ievades lasīšana
     n = int(input())
-    parents = np.fromstring(input(), dtype=int, sep=' ')
-    # Koka dziļuma aprēķināšana
-    max_height = compute_height(n, parents)
-    # Rezultāta izvade
-    print(max_height)
+    if "I" in n:
+        n = int(input())
+        parents = np.fromstring(input(), dtype=int, sep=' ')
+        # Koka dziļuma aprēķināšana
+        max_height = compute_height(n, parents)
+    
+        #Rezultāta izvade
+        print(max_height)
 
 # In Python, the default limit on recursion depth is rather low,
 # so raise it here for this problem. Note that to take advantage
