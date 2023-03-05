@@ -47,8 +47,7 @@ def main():
         #Rezultāta izvade
         print(max_height)
     if "F" in text:
-        text = "test/" + input()
-        
+        text = input()
         with open(text, 'r') as f:
             n = int(input())
             parents = np.fromstring(input(), dtype=int, sep=' ')
