@@ -45,6 +45,16 @@ def main():
     
         #Rezultāta izvade
         print(max_height)
+    if "F" in text:
+        text = input()
+        with open(text, 'r') as f:
+            n = int(input())
+            parents = np.fromstring(input(), dtype=int, sep=' ')
+            # Koka dziļuma aprēķināšana
+            max_height = compute_height(n, parents)
+    
+            #Rezultāta izvade
+            print(max_height)
     
 
 # In Python, the default limit on recursion depth is rather low,
