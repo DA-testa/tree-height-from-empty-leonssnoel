@@ -45,7 +45,7 @@ def main():
     
         #Rezultāta izvade
         print(max_height)
-    if "F" in text:
+    if "F\r" in text:
         text = input()
         with open(text, 'r') as f:
             n = int(input())
